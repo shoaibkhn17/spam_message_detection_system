@@ -1,0 +1,31 @@
+body {
+    background-color: #f4f7f6;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.card {
+    border-radius: 15px;
+}
+
+#message-input {
+    border: 2px solid #e0e0e0;
+    resize: none;
+    font-size: 1.1rem;
+}
+
+#message-input:focus {
+    border-color: #128C7E;
+    box-shadow: none;
+}
+
+.result-spam {
+    color: #d9534f;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.result-ham {
+    color: #5cb85c;
+    font-size: 2rem;
+    font-weight: 800;
+}
