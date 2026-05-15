@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Training Data - SpamAlert AI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { background-color: #f4f7f6; padding: 40px; }
+        .glass-card { background: white; border-radius: 15px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .badge-spam { background-color: #ffdee2; color: #d63384; }
+        .badge-safe { background-color: #e0ffef; color: #198754; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2><i class="fas fa-database text-primary me-2"></i>AI Training Dataset</h2>
+            <a href="/dashboard" class="btn btn-outline-secondary"><i class="fas fa-arrow-left me-2"></i>Back</a>
+        </div>
+        
+        <div class="glass-card">
+            <p class="text-muted mb-4">The following messages were used to train the <strong>Multinomial Naive Bayes</strong> classifier for both English and Roman Urdu patterns.</p>
+            <table class="table align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>Message Content (Training Features)</th>
+                        <th>Classification (Label)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for sample in samples %}
+                    <tr>
+                        <td class="py-3">"<em>{{ sample.text }}</em>"</td>
+                        <td>
+                            <span class="badge rounded-pill px-3 py-2 {{ 'badge-spam' if sample.label == 'Spam' else 'badge-safe' }}">
+                                {{ sample.label }}
+                            </span>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
