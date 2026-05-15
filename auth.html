@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpamAlert AI - Secure Access</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth-style.css') }}">
+</head>
+<body class="auth-page">
+
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="auth-card p-4 shadow-lg" style="max-width: 400px; width: 100%; background: white; border-radius: 15px;">
+            
+            <div class="text-center mb-4">
+                <div class="logo-circle mx-auto mb-2" style="font-size: 2rem;">
+                    <span class="shield-icon">🛡️</span>
+                </div>
+                <h3 class="fw-bold project-title">SpamAlert AI</h3>
+                <p class="text-muted small">Multi-Language Security Engine</p>
+            </div>
+
+            <div id="login-section">
+                <h5 class="text-center mb-3 fw-semibold">Sign In</h5>
+                <form action="/login" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label small text-muted">Email Address</label>
+                        <input type="email" class="form-control" name="email" placeholder="name@example.com" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small text-muted">Password</label>
+                        <input type="password" class="form-control" name="password" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 py-2">Continue</button>
+                </form>
+                <div class="text-center mt-3">
+                    <span class="small text-muted">New here?</span>
+                    <a href="javascript:void(0)" onclick="toggleAuth()" class="small text-primary fw-bold text-decoration-none">Create Account</a>
+                </div>
+            </div>
+
+            <div id="signup-section" style="display: none;">
+                <h5 class="text-center mb-3 fw-semibold">Join SpamAlert</h5>
+                <form action="/signup" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label small text-muted">Full Name</label>
+                        <input type="text" class="form-control" name="full_name" placeholder="John Doe" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small text-muted">Email Address</label>
+                        <input type="email" class="form-control" name="email" placeholder="name@email.com" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small text-muted">Password</label>
+                        <input type="password" class="form-control" name="password" placeholder="Create a strong password" required>
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary w-100 py-2">Sign Up</button>
+                </form>
+                <div class="text-center mt-3">
+                    <span class="small text-muted">Already have an account?</span>
+                    <a href="javascript:void(0)" onclick="toggleAuth()" class="small text-primary fw-bold text-decoration-none">Log In</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function toggleAuth() {
+            const login = document.getElementById('login-section');
+            const signup = document.getElementById('signup-section');
+            if (login.style.display === "none") {
+                login.style.display = "block";
+                signup.style.display = "none";
+            } else {
+                login.style.display = "none";
+                signup.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
